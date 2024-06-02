@@ -1,0 +1,4 @@
+[submodule "i2pd_aimafan"]
+	path = i2pd_aimafan
+	url = http://10.122.227.72:3000/aimafan/i2pd_aimafan.git
+	branch = align
