@@ -1,0 +1,28 @@
+version: '3'
+
+
+services:
+  i2p_spider:
+    restart: always
+    image: chongrufan/spider_i2p_browser:v1
+    hostname: i2p_spider
+    # 直接host模式
+    network_mode: "host"
+    tty: true
+    stdin_open: true
+    deploy:
+      mode: replicated
+      replicas: 1
+    # 将下列文件进行挂载
+    # 1. 配置文件config
+    # 2. 数据文件（流量、流日志）
+    # 3. 日志文件
+    # 4. 根目录
+    volumes:
+      - "/root/aimafan/collect_i2p_docker/config:/app/config"
+      - "/root/aimafan/collect_i2p_docker/data:/app/data"
+      - "/root/aimafan/collect_i2p_docker/logs:/app/logs"
+      - "/root/aimafan/collect_i2p_docker/bushu/i2pd.conf:/root/.i2pd/i2pd.conf"
+      - "/root:/root"
+    # 设置特权模式
+    privileged: true
