@@ -30,8 +30,6 @@ def traffic():
     tcpdump_command = [
         "tcpdump",
         "-n",
-        "tcp",
-        "and",
         "not",
         "port",
         "22",
@@ -47,7 +45,7 @@ def traffic():
         traffic_name,  # 输出文件的路径
     ]
 
-    log_path = os.path.join(config["spider"]["i2pd_path"], "aimafan.log")
+    log_path = os.path.join(project_path, "data", "aimafan.log")
     if os.path.exists(log_path):
         # 删除文件
         os.remove(log_path)
@@ -75,7 +73,8 @@ def browser_action():
 
         # 开i2pd结点
         i2pd_path = os.path.join(project_path, "i2pd_aimafan", "build", "i2pd")
-        subprocess.Popen(["bash", i2pd_path], stdout=subprocess.PIPE)
+        subprocess.Popen([i2pd_path], stdout=subprocess.PIPE)
+        time.sleep(5)
         logger.info("i2pd结点开启成功")
 
         while True:

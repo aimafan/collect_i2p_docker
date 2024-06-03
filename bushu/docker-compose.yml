@@ -7,7 +7,9 @@ services:
     image: chongrufan/spider_i2p_browser:v1
     hostname: i2p_spider
     # 直接host模式
-    network_mode: "host"
+    ports:
+      - 21106:21106
+      - 21106:21106/udp
     tty: true
     stdin_open: true
     deploy:

@@ -38,9 +38,13 @@ RUN sed -i 's|http://deb.debian.org|http://mirrors.aliyun.com|g' /etc/apt/source
 RUN update-alternatives --set editor /usr/bin/vim.basic
 
 ADD . .
+
+
+
+
 # 取消网卡合并包，需要在启动容器之后跑
 # RUN sudo ethtool -K eth0 tso off gso off gro off
-RUN pip3 install --no-cache-dir -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
+RUN pip3 install --no-cache-dir -r requirements.txt -i https://mirrors.aliyun.com/pypi/simple/
 
 # 安装chrome浏览器和驱动已经相关依赖
 RUN sudo apt install -y \
