@@ -1,0 +1,1 @@
+find ./i2psnark/i2psnark -type f ! -name "*.torrent" -delete
