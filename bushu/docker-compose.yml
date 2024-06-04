@@ -9,6 +9,7 @@ services:
     ports:
       - 21106:21106
       - 21106:21106/udp
+      - 8002:8002
     tty: true
     stdin_open: true
     deploy:
