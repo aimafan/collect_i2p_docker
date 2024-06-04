@@ -24,7 +24,6 @@ services:
       - "/root/aimafan/collect_i2p_docker/config:/app/config"
       - "/root/aimafan/collect_i2p_docker/data:/app/data"
       - "/root/aimafan/collect_i2p_docker/logs:/app/logs"
-      - "/root/aimafan/collect_i2p_docker/bushu/i2pd.conf:/root/.i2pd/i2pd.conf"
       - "/root:/root"
     # 设置特权模式
     privileged: true
