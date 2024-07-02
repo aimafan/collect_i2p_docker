@@ -14,3 +14,5 @@
 
 > L limit bandwidth to 32 KB/sec, O - to 256 KB/sec, P - to 2048 KB/sec,
 > X - unlimited
+
+## 收集bt流量的步骤
