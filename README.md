@@ -33,7 +33,7 @@ docker-compose up -d
 ```
 ethtool -K enp1s0 tso off gso off gro off lro off
 ethtool -K docker0 tso off gso off gro off lro off
-ethtool -K br-bd55e4ff81fd tso off gso off gro off lro off
+ethtool -K br-1efccf5b3cc9 tso off gso off gro off lro off
 ```
 
 5. 进入容器
