@@ -4,8 +4,8 @@ version: '3'
 services:
   i2p_spider:
     restart: always
-    image: chongrufan/spider_i2p_browser:v1
-    hostname: i2p_spider
+    image: chongrufan/spider_i2p_browser:v2
+    container_name: spider_i2p_browser
     # 直接host模式
     ports:
       - 21106:21106
@@ -21,10 +21,9 @@ services:
     # 3. 日志文件
     # 4. 根目录
     volumes:
-      - "/root/aimafan/collect_i2p_docker/config:/app/config"
-      - "/root/aimafan/collect_i2p_docker/data:/app/data"
-      - "/root/aimafan/collect_i2p_docker/logs:/app/logs"
-      - "/root/aimafan/collect_i2p_docker/bushu/i2pd.conf:/root/.i2pd/i2pd.conf"
+      - "/home/ubuntu/aimafan/collect_i2p_browser/config:/app/config"
+      - "/home/ubuntu/aimafan/collect_i2p_browser/data:/app/data"
+      - "/home/ubuntu/aimafan/collect_i2p_browser/logs:/app/logs"
       - "/root:/root"
     # 设置特权模式
     privileged: true

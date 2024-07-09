@@ -4,7 +4,7 @@ FROM debian:bullseye
 WORKDIR /app
 
 # 安装基本工具和依赖
-RUN sed -i 's|http://deb.debian.org|http://mirrors.aliyun.com|g' /etc/apt/sources.list && \
+RUN sed -i 's|http://deb.debian.org|http://mirrors.bupt.edu.cn|g' /etc/apt/sources.list && \
     apt-get update && apt-get install -y \
     vim \
     sudo \
@@ -37,11 +37,7 @@ RUN sed -i 's|http://deb.debian.org|http://mirrors.aliyun.com|g' /etc/apt/source
 # 将vim设为默认编辑器
 RUN update-alternatives --set editor /usr/bin/vim.basic
 
-ADD . .
-
-
-
-
+ADD . . 
 # 取消网卡合并包，需要在启动容器之后跑
 # RUN sudo ethtool -K eth0 tso off gso off gro off
 RUN pip3 install --no-cache-dir -r requirements.txt -i https://mirrors.aliyun.com/pypi/simple/
@@ -74,8 +70,7 @@ RUN sudo apt install -f
 RUN sudo dpkg -i bushu/chrome/google-chrome-stable_current_amd64.deb
 RUN sudo mv bushu/chrome/chromedriver-linux64/chromedriver /usr/bin
 
-
-RUN cd i2pd_aimafan/build; cmake .; make -j60
+RUN cd i2pd_aimafan/build; cmake .; make -j40
 
 # 默认命令，打开vim
 CMD ["bash"]

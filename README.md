@@ -16,37 +16,23 @@
 > X - unlimited
 
 ## how to use
-用于收集browser流量，步骤如下：
-1. 克隆项目
-```
-git clone -b browser https://github.com/aimafan/collect_i2p_docker.git
-```
 
-2. 修改`bushu/i2pd.conf`配置，主要修改`bandwidth`配置
-3. 修改`bushu/docker-compose.yml`配置，主要修改挂载的路径
-3. 开始部署，在`bushu`中
-```
-docker-compose up -d
-```
-
-4. 取消网卡合并包
+取消网卡合并包
 ```
 ethtool -K enp1s0 tso off gso off gro off lro off
+ethtool -K eth0 tso off gso off gro off lro off
 ethtool -K docker0 tso off gso off gro off lro off
 ethtool -K br-1efccf5b3cc9 tso off gso off gro off lro off
 ```
+## 原理
+主要包括以下网站，分别是
 
-5. 进入容器
-```
-docker exec -it bushu_i2p_spider_1 bash
-```
+论坛类：
+http://i2pforum.i2p
 
-6. 取消网卡合并包
-```
-ethtool -K eth0 tso off gso off gro off lro off
-```
+wiki网站
+http://wiki.i2p-projekt.i2p/
 
-6. 在`/app/src`中，执行
-```
-python -m collect_i2p_docker.spider.action
-```
+新闻
+http://threatpost.i2p/
+
